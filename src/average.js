@@ -12,6 +12,25 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const average = (array) => {
+  let sum = 0;
+  const arrayLength = array.length;
+  if (arrayLength === 0) {
+    return;
+  }
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      return;
+    }
+    sum += array[index];
+  }
+  const result = Math.round(sum / arrayLength);
+  return result;
+};
 
 module.exports = average;
+
+/*
+Pesquisei sobre a função Math.round() para fazer o arredondamento do resultado da divisão para o inteiro mais próximo.
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+*/
